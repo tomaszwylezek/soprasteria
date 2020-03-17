@@ -1,6 +1,7 @@
 import React, { FC, useState, SyntheticEvent } from 'react';
 
 import { Input } from './Input/Input';
+import { calculateTaxFreeAmount } from './helpers';
 
 export const App: FC = () => {
   const [yearlyIncome, setYearlyIncome] = useState<string>('');
@@ -13,7 +14,7 @@ export const App: FC = () => {
           setYearlyIncome(event.currentTarget.value);
         }}
       />
-      <div> {yearlyIncome}</div>
+      <div>Tax free amount is: {calculateTaxFreeAmount(+yearlyIncome)}</div>
     </main>
   );
 };
