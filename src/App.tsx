@@ -17,7 +17,7 @@ export const App: FC = () => {
         }}
       />
 
-      {isIncomeValid && <div>Tax to pay is: {calculateTax(+yearlyIncome)}</div>}
+      {isIncomeValid && <div>Tax to pay is: {calculateTax(+yearlyIncome)} zł</div>}
       {!isIncomeValid && <div>Invalid value provided</div>}
     </main>
   );
