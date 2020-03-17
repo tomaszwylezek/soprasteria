@@ -23,6 +23,10 @@ describe('calculateTaxFreeAmount', () => {
 });
 
 describe('calculateTax', () => {
+  it('should tax to pay when earn 1000', () => {
+    expect(calculateTax(1000)).toBe(0);
+  });
+
   it('should tax to pay when earn 10000', () => {
     expect(calculateTax(10000)).toBe(748.95);
   });

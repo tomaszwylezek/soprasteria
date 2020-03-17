@@ -33,7 +33,7 @@ const calculateTax = (income: number): number => {
     tax = CONST.MAX_TAX_FROM_FIRST_THRESHOLD + CONST.SECOND_TAX_THRESHOLD * (income - CONST.SECOND_GRADE_END);
   }
 
-  return +(tax - taxFreeAmount).toFixed(2);
+  return Math.max(0, +(tax - taxFreeAmount).toFixed(2));
 };
 
 export { calculateTaxFreeAmount, calculateTax };

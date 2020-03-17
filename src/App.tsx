@@ -1,10 +1,12 @@
 import React, { FC, useState, SyntheticEvent } from 'react';
 
 import { Input } from './Input/Input';
-import { calculateTaxFreeAmount } from './helpers';
+import { calculateTax } from './helpers';
 
 export const App: FC = () => {
   const [yearlyIncome, setYearlyIncome] = useState<string>('');
+
+  const isIncomeValid = !Number.isNaN(+yearlyIncome);
   return (
     <main>
       <h1>SopraSteria</h1>
@@ -14,7 +16,9 @@ export const App: FC = () => {
           setYearlyIncome(event.currentTarget.value);
         }}
       />
-      <div>Tax free amount is: {calculateTaxFreeAmount(+yearlyIncome)}</div>
+
+      {isIncomeValid && <div>Tax to pay is: {calculateTax(+yearlyIncome)}</div>}
+      {!isIncomeValid && <div>Invalid value provided</div>}
     </main>
   );
 };
